@@ -1,7 +1,7 @@
 const tabCopy = {
-  strengths: '<h3>What the platform improved</h3><p>The centralized AI project and portfolio management platform replaced spreadsheets, Microsoft Project files, and legacy PPM tools. It improved visibility, reduced duplicated administrative work, and introduced predictive scheduling, resource optimization, AI analytics, natural-language reporting, anomaly detection, and trend analysis.</p>',
-  weaknesses: '<h3>Why adoption was mixed</h3><p>Weak governance, incomplete inputs, rigid configuration, limited department-manager engagement, uneven training, inconsistent executive reporting, and manual-workflow resistance reduced trust and prevented organization-wide value.</p>',
-  recommendations: '<h3>Recommended implementation approach</h3><p>Global Tech should have used a hybrid implementation approach, department-specific pilots, iterative agile-style sprints, stronger stakeholder engagement, more consistent leadership involvement, and role-based training and support.</p>'
+  worked: ['Centralized portfolio visibility', 'Predictive scheduling and analytics', 'Faster reporting in integrated teams'],
+  failed: ['Incomplete and inconsistent data', 'Uneven training and leadership support', 'Rigid department-level configurations'],
+  better: ['Department-specific pilot testing', 'Agile implementation sprints', 'Stronger stakeholder engagement']
 };
 
 function animateKpis() {
@@ -20,7 +20,23 @@ function animateKpis() {
 
 function setTab(key) {
   document.querySelectorAll('.tab').forEach(btn => btn.classList.toggle('active', btn.dataset.tab === key));
-  document.querySelector('#tabContent').innerHTML = tabCopy[key];
+  document.querySelector('#tabContent').innerHTML = `<ul>${tabCopy[key].map(item => `<li>${item}</li>`).join('')}</ul>`;
+}
+
+function closeAccordion(trigger) {
+  trigger.setAttribute('aria-expanded', 'false');
+  document.getElementById(trigger.getAttribute('aria-controls')).classList.remove('open');
+}
+
+function openAccordion(trigger) {
+  const group = trigger.closest('[data-accordion-group]')?.dataset.accordionGroup;
+  if (group) {
+    document.querySelectorAll(`[data-accordion-group="${group}"] .accordion-trigger[aria-expanded="true"]`).forEach(openTrigger => {
+      if (openTrigger !== trigger) closeAccordion(openTrigger);
+    });
+  }
+  trigger.setAttribute('aria-expanded', 'true');
+  document.getElementById(trigger.getAttribute('aria-controls')).classList.add('open');
 }
 
 const toggle = document.querySelector('.nav-toggle');
@@ -39,9 +55,13 @@ links.addEventListener('click', event => {
 
 document.querySelectorAll('.tab').forEach(btn => btn.addEventListener('click', () => setTab(btn.dataset.tab)));
 
-document.querySelector('#explainBtn').addEventListener('click', () => {
-  document.querySelector('#aiExplain').textContent = 'Before acting, the dashboard should explain why the recommendation was made, which data was used, which assumptions were made, whether data is missing, how reliable the recommendation is, and whether managerial review is required.';
+document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+  trigger.addEventListener('click', () => {
+    const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+    if (isOpen) closeAccordion(trigger);
+    else openAccordion(trigger);
+  });
 });
 
-setTab('strengths');
+setTab('worked');
 animateKpis();
