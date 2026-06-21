@@ -1,26 +1,8 @@
-const departments = [
-  { name: 'Pilot teams', value: 82 },
-  { name: 'PMO', value: 74 },
-  { name: 'Engineering', value: 63 },
-  { name: 'Operations', value: 55 },
-  { name: 'Legacy teams', value: 38 }
-];
-
 const tabCopy = {
-  success: '<h3>Success factors</h3><p>Pilot-tested departments with structured support, engaged managers, and cleaner data achieved smoother integration, better AI recommendations, and measurable reporting-time gains.</p>',
-  failure: '<h3>Failure points</h3><p>Incomplete data, algorithmic bias, inconsistent training, and weak communication caused some teams to distrust the platform and return to legacy tools.</p>',
-  alternative: '<h3>Better approach</h3><p>A hybrid transition, agile implementation sprints, and department-specific diagnostics would have reduced disruption while preserving transparency and workflow fit.</p>'
+  strengths: '<h3>What the platform improved</h3><p>The centralized AI project and portfolio management platform replaced spreadsheets, Microsoft Project files, and legacy PPM tools. It improved visibility, reduced duplicated administrative work, and introduced predictive scheduling, resource optimization, AI analytics, natural-language reporting, anomaly detection, and trend analysis.</p>',
+  weaknesses: '<h3>Why adoption was mixed</h3><p>Weak governance, incomplete inputs, rigid configuration, limited department-manager engagement, uneven training, inconsistent executive reporting, and manual-workflow resistance reduced trust and prevented organization-wide value.</p>',
+  recommendations: '<h3>Recommended implementation approach</h3><p>Global Tech should have used a hybrid implementation approach, department-specific pilots, iterative agile-style sprints, stronger stakeholder engagement, more consistent leadership involvement, and role-based training and support.</p>'
 };
-
-function renderBars(data) {
-  const chart = document.querySelector('#adoptionChart');
-  chart.innerHTML = data.map(item => `
-    <div class="bar">
-      <strong>${item.name}</strong>
-      <div class="bar-track"><div class="bar-fill" style="width:${item.value}%"></div></div>
-      <span>${item.value}%</span>
-    </div>`).join('');
-}
 
 function animateKpis() {
   document.querySelectorAll('[data-count]').forEach(el => {
@@ -41,23 +23,25 @@ function setTab(key) {
   document.querySelector('#tabContent').innerHTML = tabCopy[key];
 }
 
-document.querySelector('.nav-toggle').addEventListener('click', event => {
-  const links = document.querySelector('#nav-links');
+const toggle = document.querySelector('.nav-toggle');
+const links = document.querySelector('#nav-links');
+toggle.addEventListener('click', event => {
   const isOpen = links.classList.toggle('open');
   event.currentTarget.setAttribute('aria-expanded', String(isOpen));
 });
 
+links.addEventListener('click', event => {
+  if (event.target.tagName === 'A') {
+    links.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+});
+
 document.querySelectorAll('.tab').forEach(btn => btn.addEventListener('click', () => setTab(btn.dataset.tab)));
 
-document.querySelector('[data-randomize]').addEventListener('click', () => {
-  const shifted = departments.map(item => ({ ...item, value: Math.max(25, Math.min(92, item.value + Math.round(Math.random() * 18 - 7))) }));
-  renderBars(shifted);
-});
-
 document.querySelector('#explainBtn').addEventListener('click', () => {
-  document.querySelector('#aiExplain').textContent = 'Example: The AI flags a schedule risk because Engineering has 63% adoption, two missing dependency updates, and a resource load above the recommended threshold. A manager should validate the context before approving any resource shift.';
+  document.querySelector('#aiExplain').textContent = 'Before acting, the dashboard should explain why the recommendation was made, which data was used, which assumptions were made, whether data is missing, how reliable the recommendation is, and whether managerial review is required.';
 });
 
-renderBars(departments);
-setTab('success');
+setTab('strengths');
 animateKpis();
