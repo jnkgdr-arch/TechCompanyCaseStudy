@@ -48,7 +48,8 @@
 
     <section class="section" id="implementation">
       <div class="section-heading"><p class="eyebrow">1. Tool Selection and Implementation Evaluation</p><h2>Rollout story</h2></div>
-      <figure class="rollout-pathway-viz" aria-label="Connected 18-month phased rollout pathway">
+      <div class="section-split implementation-split">
+      <div class="section-column"><figure class="rollout-pathway-viz" aria-label="Connected 18-month phased rollout pathway">
         <figcaption>18-Month Phased Rollout</figcaption>
         <div class="rollout-pathway-viz__track">
           <div><span>1</span><h3>Pilot</h3><p>Supported departments tested dashboards and trained the system.</p></div>
@@ -56,22 +57,30 @@
           <div><span>3</span><h3>Friction</h3><p>Data gaps, weak communication, and uneven training reduced trust.</p></div>
           <div><span>4</span><h3>Stabilize</h3><p>Governance, role-based training, and iterative improvements became necessary.</p></div>
         </div>
-      </figure>
+      </figure></div>
+      <div class="section-column">
       <div class="tabs" role="tablist" aria-label="Implementation highlights"><button class="tab active" data-tab="worked">What worked</button><button class="tab" data-tab="failed">What failed</button><button class="tab" data-tab="better">Better approach</button></div>
       <div class="tab-panel" id="tabContent" aria-live="polite"></div>
       <div class="accordion" data-accordion-group="implementation"><button class="accordion-trigger" aria-expanded="false" aria-controls="implementation-details">View full implementation analysis</button><div class="accordion-panel" id="implementation-details"><div class="detail-grid"><ul><li>Replaced Excel, Microsoft Project, and legacy PPM tools.</li><li>Added predictive scheduling, resource optimization, NLP reporting, anomaly detection, and trend analysis.</li><li>Rigid configurations limited adaptation to dynamic project conditions.</li></ul><ul><li>Limited manager involvement reduced department fit.</li><li>Executive involvement weakened during full rollout.</li><li>Manual-workflow teams resisted adoption.</li></ul></div></div></div>
+      </div></div>
     </section>
 
     <section class="section" id="data">
       <div class="section-heading"><p class="eyebrow">2. Data Management Assessment</p><h2>Data flow</h2></div>
+      <div class="section-split data-split">
+      <div class="section-column">
+      <div class="cards three compact-cards stacked-cards"><article><h3>Problem</h3><ul><li>Fragmented sources</li><li>Selective ELT</li><li>Missing history</li></ul></article><article><h3>Impact</h3><ul><li>Unreliable forecasts</li><li>Manual reconciliation</li><li>Biased recommendations</li></ul></article><article><h3>Solution</h3><ul><li>Centralized warehouse</li><li>Validated ETL</li><li>Data governance</li></ul></article></div>
+      </div><div class="section-column">
       <div class="diagram" aria-label="Recommended project data architecture"><div class="source">Excel</div><div class="source">MS Project</div><div class="source">Legacy PPM</div><div class="arrow">➜</div><div class="warehouse">Central Data Warehouse</div><div class="arrow">➜</div><div class="ai-node">AI Project Platform</div><div class="arrow">➜</div><div class="insight">Executive Decisions</div></div>
-      <div class="cards three compact-cards"><article><h3>Problem</h3><ul><li>Fragmented sources</li><li>Selective ELT</li><li>Missing history</li></ul></article><article><h3>Impact</h3><ul><li>Unreliable forecasts</li><li>Manual reconciliation</li><li>Biased recommendations</li></ul></article><article><h3>Solution</h3><ul><li>Centralized warehouse</li><li>Validated ETL</li><li>Data governance</li></ul></article></div>
       <div class="accordion" data-accordion-group="data"><button class="accordion-trigger" aria-expanded="false" aria-controls="data-details">Data governance details</button><div class="accordion-panel" id="data-details"><div class="chip-list"><span>Data stewards</span><span>Defined ownership</span><span>Standard templates</span><span>Naming conventions</span><span>Historical-data migration</span><span>Scheduled audits</span><span>Functional data marts: interim</span><span>SAN storage: interim</span></div></div></div>
+      </div></div>
     </section>
 
     <section class="section" id="decision">
       <div class="section-heading"><p class="eyebrow">3. AI Decision Support Analysis</p><h2>AI potential and utilization</h2></div>
-      <div class="comparison two-col"><article><h3>AI Potential</h3><ul><li>Portfolio-wide visibility</li><li>Reliable forecasting</li><li>Automated reporting</li><li>Scenario modeling</li><li>Lifecycle tracking</li></ul></article><article><h3>Actual Utilization</h3><ul><li>60% consistent adoption</li><li>Fragmented historical data</li><li>Uneven departmental inputs</li><li>Low trust</li><li>Legacy-tool fallback</li></ul></article></div>
+      <div class="section-split ai-primary-split">
+      <div class="section-column comparison stacked-comparison"><article><h3>AI Potential</h3><ul><li>Portfolio-wide visibility</li><li>Reliable forecasting</li><li>Automated reporting</li><li>Scenario modeling</li><li>Lifecycle tracking</li></ul></article><article><h3>Actual Utilization</h3><ul><li>60% consistent adoption</li><li>Fragmented historical data</li><li>Uneven departmental inputs</li><li>Low trust</li><li>Legacy-tool fallback</li></ul></article></div>
+      <div class="section-column">
       <figure class="ai-radar-viz" aria-label="Conceptual radar chart comparing target capability and actual implementation">
         <figcaption>Conceptual comparison based on qualitative research findings—not measured case-study scores.</figcaption>
         <svg viewBox="60 24 500 414" role="img" aria-labelledby="ai-radar-title ai-radar-desc">
@@ -83,32 +92,37 @@
           <g class="ai-radar-viz__labels"><text x="310" y="42">Data</text><text x="536" y="154">Adoption</text><text x="536" y="315">Prediction</text><text x="310" y="430">Trust</text><text x="84" y="315">Explainability</text><text x="84" y="154">Validation</text></g>
         </svg>
         <div class="ai-radar-viz__legend"><span><b></b>Target capability</span><span><b></b>Actual implementation</span></div>
-      </figure>
+      </figure></div></div>
+      <div class="section-split ai-details-split"><div class="section-column">
       <div class="takeaway banner">AI value depended on complete data, managerial validation, and consistent adoption.</div>
       <div class="accordion" data-accordion-group="capabilities"><button class="accordion-trigger" aria-expanded="false" aria-controls="capability-details">View AI Capabilities</button><div class="accordion-panel" id="capability-details"><div class="capability-grid" aria-label="AI decision-support capabilities">
         <article><span>📅</span><h3>Predictive scheduling</h3><p>Timeline risk</p></article><article><span>👥</span><h3>Resource optimization</h3><p>Staff allocation</p></article><article><span>💵</span><h3>Budget support</h3><p>Cost visibility</p></article><article><span>🛡️</span><h3>Risk forecasting</h3><p>Early warnings</p></article><article><span>🔀</span><h3>Scenario planning</h3><p>Option testing</p></article><article><span>📝</span><h3>NLP reporting</h3><p>Plain summaries</p></article><article><span>🚨</span><h3>Anomaly detection</h3><p>Pattern flags</p></article><article><span>📈</span><h3>Trend analysis</h3><p>Portfolio signals</p></article>
-      </div></div></div>
+      </div></div></div></div><div class="section-column">
       <div class="accordion" data-accordion-group="decision"><button class="accordion-trigger" aria-expanded="false" aria-controls="decision-details">Why the gap occurred</button><div class="accordion-panel" id="decision-details"><p>AI recommendations were strongest where data was complete and managers validated outputs. Fragmented inputs, missing history, and inconsistent adoption caused biased or illogical suggestions and reduced trust.</p></div></div>
+      </div></div>
     </section>
 
     <section class="section" id="reporting">
       <div class="section-heading"><p class="eyebrow">4. Dashboard and Reporting Evaluation</p><h2>Role-based dashboards</h2></div>
-      <div class="mockup-grid" aria-label="Role-based dashboard mockups">
+      <div class="section-split reporting-split"><div class="section-column"><div class="mockup-grid stacked-mockups" aria-label="Role-based dashboard mockups">
         <article class="mockup"><div class="mock-header"><h3>Executive</h3><span>Oversight</span></div><div class="mini-gantt"><b></b><b></b><b></b></div><div class="chip-list"><span>Portfolio health</span><span>Budget allocation</span><span>Global performance</span><span>Strategic risks</span></div></article>
         <article class="mockup"><div class="mock-header"><h3>Manager</h3><span>Control</span></div><div class="mini-bars"><b></b><b></b><b></b></div><div class="chip-list"><span>Workload</span><span>Schedule risk</span><span>Budget status</span><span>Change log</span></div></article>
         <article class="mockup"><div class="mock-header"><h3>Project Team</h3><span>Focus</span></div><div class="checklist"><span>✓ Daily tasks</span><span>↔ Dependencies</span><span>▰ Progress</span><span>⏱ Deadlines</span></div></article>
-      </div>
+      </div></div><div class="section-column">
       <div class="accordion" data-accordion-group="reporting"><button class="accordion-trigger" aria-expanded="false" aria-controls="reporting-details">Dashboard design requirements</button><div class="accordion-panel" id="reporting-details"><div class="chip-list"><span>Department filters</span><span>Project-type filters</span><span>Operation filters</span><span>Custom views</span><span>Role-based access</span><span>NLP queries</span><span>Anomaly explanations</span><span>Mitigation recommendations</span><span>Critical-path monitoring</span><span>Scope-creep prevention</span><span>Technical-comfort support</span><span>Simplicity/comprehensiveness balance</span></div></div></div>
+      </div></div>
     </section>
 
     <section class="section" id="culture">
       <div class="section-heading"><p class="eyebrow">5. Organizational and Cultural Impact</p><h2>Culture split</h2><p class="section-subtitle">Uneven adoption divided the organization between AI-supported and manual workflows.</p></div>
-      <div class="comparison balance"><article><span class="big-icon">✅</span><h3>Positive Effects</h3><ul><li>Faster reporting</li><li>Better planning</li><li>Improved collaboration</li><li>Greater efficiency</li></ul></article><article><span class="big-icon">⚠️</span><h3>Negative Effects</h3><ul><li>Departmental silos</li><li>Reduced trust</li><li>Legacy-tool fallback</li><li>Authority conflicts</li></ul></article></div>
+      <div class="section-split culture-split"><div class="section-column comparison stacked-comparison"><article><span class="big-icon">✅</span><h3>Positive Effects</h3><ul><li>Faster reporting</li><li>Better planning</li><li>Improved collaboration</li><li>Greater efficiency</li></ul></article><article><span class="big-icon">⚠️</span><h3>Negative Effects</h3><ul><li>Departmental silos</li><li>Reduced trust</li><li>Legacy-tool fallback</li><li>Authority conflicts</li></ul></article></div><div class="section-column">
       <div class="accordion" data-accordion-group="culture"><button class="accordion-trigger" aria-expanded="false" aria-controls="culture-details">View organizational details</button><div class="accordion-panel" id="culture-details"><p>Fully integrated departments collaborated more effectively. Poorly integrated areas saw weaker communication, harder shared-resource coordination, and tension as AI recommendations challenged traditional managerial authority.</p></div></div>
+      </div></div>
     </section>
 
     <section class="section" id="ethics">
       <div class="section-heading"><p class="eyebrow">Ethical and Responsible AI</p><h2>Control points</h2></div>
+      <div class="section-split ethics-split"><div class="section-column">
       <figure class="governance-cycle-viz" aria-label="Responsible AI governance cycle diagram">
         <figcaption>Responsible AI Governance Cycle</figcaption>
         <svg viewBox="28 18 624 382" role="img" aria-labelledby="cycle-title cycle-desc">
@@ -122,8 +136,9 @@
           <g class="governance-cycle-viz__step"><rect x="265" y="324" width="150" height="58" rx="14"/><text x="340" y="346">Approve</text><text x="340" y="365">Human oversight</text></g>
           <g class="governance-cycle-viz__step"><rect x="55" y="176" width="130" height="58" rx="14"/><text x="120" y="198">Monitor</text><text x="120" y="217">Transparency</text></g>
         </svg>
-      </figure>
+      </figure></div><div class="section-column">
       <div class="accordion" data-accordion-group="ethics"><button class="accordion-trigger" aria-expanded="false" aria-controls="ethics-details">Responsible AI controls</button><div class="accordion-panel" id="ethics-details"><div class="ethics-definitions"><article><h3>Fairness</h3><p>Audit recommendations for unequal department or project treatment.</p></article><article><h3>Human Oversight</h3><p>Require managerial approval before material project changes.</p></article><article><h3>Privacy</h3><p>Restrict employee-data access and monitor data use.</p></article><article><h3>Transparency</h3><p>Show evidence, assumptions, missing data, and confidence.</p></article></div><div class="chip-list"><span>Diverse training data</span><span>Cross-department validation</span><span>Approval workflows</span><span>Fairness reviews</span><span>Accuracy reviews</span><span>Privacy reviews</span><span>Stakeholder feedback</span><span>Continuous monitoring</span><span>High-profile project bias</span><span>Employee profile data risk</span></div></div></div>
+      </div></div>
     </section>
 
     <section class="section" id="roadmap">

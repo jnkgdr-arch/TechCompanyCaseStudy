@@ -77,6 +77,11 @@ main { overflow: hidden; }
 .section-subtitle { max-width: 720px; margin: 7px 0 0; color: var(--muted); font-size: .92rem; }
 h3 { font-size: clamp(1.1rem, 1.4vw, 1.4rem); line-height: 1.25; }
 p, li { font-size: clamp(.94rem, 1vw, 1rem); }
+.section-split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: start; }
+.section-column { min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+.section-column > .accordion, .section-column > .takeaway, .section-column > figure { width: 100%; margin: 0; align-self: start; }
+.ai-primary-split { grid-template-columns: .95fr 1.05fr; }
+.ai-details-split { margin-top: 20px; }
 
 /* Restrained executive cards */
 .kpi, .metrics-card, .cards article, .comparison article, .mockup, .accordion, .process article,
@@ -115,6 +120,7 @@ p, li { font-size: clamp(.94rem, 1vw, 1rem); }
 .process h3, .capability-grid h3 { margin: 6px 0 3px; font-size: .95rem; }
 .process p, .capability-grid p, .mockup p, .ethics-cards p { margin: 0; color: var(--muted); font-size: .8rem; }
 .compact-cards { max-width: 900px; margin-inline: auto; gap: 10px; }
+.compact-cards.stacked-cards, .comparison.stacked-comparison, .mockup-grid.stacked-mockups { width: 100%; grid-template-columns: 1fr; margin: 0; }
 .compact-cards article { padding: 12px 15px; }
 .compact-cards h3 { margin: 0 0 5px; font-size: .95rem; }
 .compact-cards li { margin-block: 2px; font-size: .8rem; }
@@ -132,6 +138,8 @@ p, li { font-size: clamp(.94rem, 1vw, 1rem); }
 .accordion-panel.open { max-height: 800px; }
 .accordion-panel > *, .accordion-panel .detail-grid { padding: 0 20px 20px; }
 .accordion-panel > .capability-grid { padding-top: 4px; }
+.accordion-panel > .chip-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.accordion-panel > .chip-list span { min-width: 0; width: 100%; align-items: center; }
 .detail-grid, .comparison { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 
 .diagram { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px; width: 100%; max-width: 900px; margin-inline: auto; padding: 14px 16px; }
@@ -165,6 +173,9 @@ p, li { font-size: clamp(.94rem, 1vw, 1rem); }
 .ai-radar-viz__legend { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; font-size: .72rem; font-weight: 700; }
 .ai-radar-viz__legend b { display: inline-block; width: 10px; height: 10px; margin-right: 6px; border-radius: 2px; background: var(--teal); }
 .ai-radar-viz__legend span:last-child b { background: var(--blue); }
+.implementation-split .rollout-pathway-viz__track { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.implementation-split .rollout-pathway-viz__track::before { display: none; }
+.implementation-split .tabs { margin-top: 0; }
 
 .mockup { min-width: 0; display: flex; flex-direction: column; gap: 8px; padding: 15px; }
 .mock-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
@@ -220,6 +231,13 @@ footer { padding: 25px 22px; border-top: 1px solid rgba(175,163,12,.35); backgro
   .timeline-roadmap::before { display: none; }
 }
 
+@media (max-width: 900px) {
+  .section-split, .ai-primary-split { grid-template-columns: 1fr; }
+  .ai-details-split { margin-top: 14px; }
+  .implementation-split .rollout-pathway-viz__track { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .implementation-split .rollout-pathway-viz__track::before { display: block; }
+}
+
 @media (max-width: 700px) {
   body { font-size: .96rem; }
   .section { padding: 44px 18px; }
@@ -233,6 +251,8 @@ footer { padding: 25px 22px; border-top: 1px solid rgba(175,163,12,.35); backgro
   .snapshot-strip { grid-template-columns: 1fr 1fr; }
   .rollout-pathway-viz__track { grid-template-columns: 1fr; }
   .rollout-pathway-viz__track::before { display: none; }
+  .implementation-split .rollout-pathway-viz__track { grid-template-columns: 1fr; }
+  .implementation-split .rollout-pathway-viz__track::before { display: none; }
   .rollout-pathway-viz__track div { padding: 15px 15px 15px 56px; }
   .rollout-pathway-viz__track span { top: 15px; }
   .diagram { justify-content: flex-start; }
@@ -240,6 +260,7 @@ footer { padding: 25px 22px; border-top: 1px solid rgba(175,163,12,.35); backgro
   .accordion-panel.open { max-height: 1400px; }
   .ai-radar-viz, .governance-cycle-viz { padding: 12px; }
   .ai-radar-viz__labels text { font-size: 11px; }
+  .accordion-panel > .chip-list { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 430px) {
