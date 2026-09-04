@@ -74,6 +74,7 @@ main { overflow: hidden; }
 .section + .section { border-top: 1px solid rgba(132, 160, 190, .12); }
 .section-heading { margin-bottom: 16px; }
 .section h2 { margin: 0; font-size: clamp(1.5rem, 2vw, 1.875rem); line-height: 1.2; letter-spacing: -.02em; }
+.section-subtitle { max-width: 720px; margin: 7px 0 0; color: var(--muted); font-size: .92rem; }
 h3 { font-size: clamp(1.1rem, 1.4vw, 1.4rem); line-height: 1.25; }
 p, li { font-size: clamp(.94rem, 1vw, 1rem); }
 
@@ -113,6 +114,10 @@ p, li { font-size: clamp(.94rem, 1vw, 1rem); }
 .capability-grid > article > span { font-size: 1.35rem; }
 .process h3, .capability-grid h3 { margin: 6px 0 3px; font-size: .95rem; }
 .process p, .capability-grid p, .mockup p, .ethics-cards p { margin: 0; color: var(--muted); font-size: .8rem; }
+.compact-cards { max-width: 900px; margin-inline: auto; gap: 10px; }
+.compact-cards article { padding: 12px 15px; }
+.compact-cards h3 { margin: 0 0 5px; font-size: .95rem; }
+.compact-cards li { margin-block: 2px; font-size: .8rem; }
 
 .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
 .tab { padding: 9px 13px; border: 1px solid var(--line); border-radius: 8px; background: var(--navy); color: #d8e6f3; font-weight: 700; cursor: pointer; }
@@ -126,6 +131,7 @@ p, li { font-size: clamp(.94rem, 1vw, 1rem); }
 .accordion-panel { max-height: 0; overflow: hidden; transition: max-height .28s ease; }
 .accordion-panel.open { max-height: 800px; }
 .accordion-panel > *, .accordion-panel .detail-grid { padding: 0 20px 20px; }
+.accordion-panel > .capability-grid { padding-top: 4px; }
 .detail-grid, .comparison { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 
 .diagram { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px; width: 100%; max-width: 900px; margin-inline: auto; padding: 14px 16px; }
@@ -182,6 +188,11 @@ p, li { font-size: clamp(.94rem, 1vw, 1rem); }
 .timeline-roadmap strong { color: #73bfff; font-size: .7rem; text-transform: uppercase; }
 .timeline-roadmap h3 { margin: 4px 0 5px; font-size: 1rem; }
 .timeline-roadmap li { margin-block: 2px; font-size: .78rem; }
+.visual-caption { margin: 8px auto 0; color: var(--muted); font-size: .72rem; text-align: center; }
+.ethics-definitions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.ethics-definitions article { padding: 11px 13px; border: 1px solid var(--panel-line); border-radius: 8px; background: var(--navy-alt); }
+.ethics-definitions h3 { margin: 0 0 3px; font-size: .9rem; }
+.ethics-definitions p { margin: 0; color: var(--muted); font-size: .8rem; }
 .references { margin: 0; padding-left: 20px; }
 .references li { margin: 10px 0; font-size: .88rem; color: #c5d2df; }
 .references a { color: #7fc2fb; overflow-wrap: anywhere; }
@@ -217,6 +228,7 @@ footer { padding: 25px 22px; border-top: 1px solid rgba(175,163,12,.35); backgro
   .hero-actions { align-items: stretch; flex-direction: column; }
   .button { justify-content: center; }
   .dashboard-layout, .detail-grid, .comparison, .process, .cards.three, .cards.four, .capability-grid, .mockup-grid, .timeline-roadmap { grid-template-columns: 1fr; }
+  .ethics-definitions { grid-template-columns: 1fr; }
   .kpi-grid { grid-template-columns: 1fr 1fr; }
   .snapshot-strip { grid-template-columns: 1fr 1fr; }
   .rollout-pathway-viz__track { grid-template-columns: 1fr; }
